@@ -11,7 +11,7 @@ function Hero() {
   const [isCycling, setIsCycling] = useState(false);
 
   const handleRandomNumber = (min, max) => {
-    if (max > 100) {
+    if (max > 100 || min < 1) {
       return;
     }
     let randomNumber;
@@ -28,7 +28,7 @@ function Hero() {
     for (let i = min; i <= max; i++) {
       newNumbers = [...newNumbers, i];
     }
-    if (max > 100) {
+    if (max > 100 || min < 1) {
       setNumbers([]);
     } else {
       setNumbers(newNumbers);
