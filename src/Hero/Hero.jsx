@@ -6,7 +6,7 @@ function Hero() {
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(5);
   const [prev, setPrev] = useState(0);
-  const [prevIndex, setPrevIndex] = useState(null); // Store the previous index
+  const [prevIndex, setPrevIndex] = useState(null);
   const [numbers, setNumbers] = useState([]);
   const [isCycling, setIsCycling] = useState(false);
 
