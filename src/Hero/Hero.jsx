@@ -4,26 +4,39 @@ import "./Hero.css";
 function Hero() {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
-  const [max, setMax] = useState(5);
+  const [max, setMax] = useState(50);
   const [prev, setPrev] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const [numbers, setNumbers] = useState([]);
   const [isCycling, setIsCycling] = useState(false);
+  const [allowRepeat, setAllowRepeat] = useState(false);
+  const [excludedNumbers, setExcludedNumbers] = useState([]);
 
   const handleRandomNumber = (min, max) => {
-    if (max > 100 || min < 1) {
-      return;
-    }
     let randomNumber;
-    do {
-      randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    } while (randomNumber === prev);
+    if (allowRepeat) {
+      do {
+        randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      } while (excludedNumbers.includes(randomNumber));
+
+      setExcludedNumbers([...excludedNumbers, randomNumber]);
+    } else {
+      handleNewNumbers();
+      do {
+        randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      } while (randomNumber === prev);
+    }
 
     setPrev(randomNumber);
     setResult(randomNumber);
   };
-
-  useEffect(() => {
+  const handleFilterNumbers = () => {
+    const filteredNumbers = numbers.filter(
+      (num) => !excludedNumbers.includes(num)
+    );
+    setNumbers(filteredNumbers);
+  };
+  const handleNewNumbers = () => {
     let newNumbers = [];
     for (let i = min; i <= max; i++) {
       newNumbers = [...newNumbers, i];
@@ -33,6 +46,11 @@ function Hero() {
     } else {
       setNumbers(newNumbers);
     }
+  };
+
+  useEffect(() => {
+    setExcludedNumbers([]);
+    handleNewNumbers();
   }, [min, max]);
 
   useEffect(() => {
@@ -52,6 +70,28 @@ function Hero() {
   }, [isCycling, numbers, prevIndex]);
 
   const handleButtonClick = () => {
+    if (excludedNumbers.length === numbers.length - 1 && allowRepeat) {
+      handleFilterNumbers();
+      setResult(numbers[0]);
+      return;
+    }
+    if (max === min) {
+      setResult(min);
+      return;
+    }
+    if (
+      max > 100 ||
+      min < 1 ||
+      max < min ||
+      excludedNumbers.length === numbers.length
+    ) {
+      return;
+    }
+    if (allowRepeat) {
+      handleFilterNumbers();
+    } else {
+      handleNewNumbers();
+    }
     setIsCycling(true);
     setTimeout(() => {
       setIsCycling(false);
@@ -59,9 +99,6 @@ function Hero() {
     setTimeout(() => {
       handleRandomNumber(min, max);
     }, 4400);
-    setTimeout(() => {
-      handleRandomNumber(min, max);
-    }, 5200);
   };
 
   return (
@@ -73,9 +110,19 @@ function Hero() {
           onChange={(e) => {
             setMin(Number(e.target.value));
           }}
+          placeholder="1"
         />
-        <input type="number" onChange={(e) => setMax(Number(e.target.value))} />
+        <input
+          type="number"
+          onChange={(e) => setMax(Number(e.target.value))}
+          placeholder="50"
+        />
         <button onClick={handleButtonClick}>Generate</button>
+        <br></br>
+        <button onClick={() => setAllowRepeat(!allowRepeat)}>
+          Allow Repeat
+        </button>
+        {allowRepeat ? "Allowed" : "Not Allowed"}
       </div>
 
       <div className="tablecontainer">

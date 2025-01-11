@@ -4,15 +4,18 @@
   height: 100vh;
   justify-content: space-evenly;
   align-items: center;
+  overflow-y: auto;
 }
 .numberscontainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(25vw, 40vw, 50vw);
+  width: 50vw;
+  max-width: 950px;
   padding: 10px;
   flex-wrap: wrap;
   gap: 10px;
+  overflow: auto;
 }
 .number {
   border: 1px solid black;
@@ -20,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(30px, 3.5vw, 5vw);
+  width: clamp(40px, 6vh, 85px);
   aspect-ratio: 1/1;
   margin: 0;
   padding: 0;
@@ -30,4 +33,13 @@
 }
 .selected {
   background-color: red;
+}
+@media screen and (max-width: 1000px) {
+  .maincontainer {
+    margin-top: 100px;
+  }
+  .hero {
+    flex-direction: column;
+    gap: 40px;
+  }
 }
