@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Hero.css";
 import Confetti from "react-confetti";
 import drum_sound from "../assets/drum_sound.mp3";
+import tada from "../assets/tada.mp3";
 function Hero({ setIsGenerating, isGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
@@ -37,6 +38,11 @@ function Hero({ setIsGenerating, isGenerating }) {
     setPrev(randomNumber);
     setResult(randomNumber);
     setIsGenerating(false);
+
+    setTimeout(() => {
+      playTada();
+    }, 400);
+
     setTimeout(() => {
       setShowConfetti(true);
       setOpacity(1);
@@ -77,6 +83,12 @@ function Hero({ setIsGenerating, isGenerating }) {
 
   const playSound = () => {
     const sound = new Audio(drum_sound);
+    sound.volume = 0.1;
+    sound.play();
+  };
+
+  const playTada = () => {
+    const sound = new Audio(tada);
     sound.volume = 0.1;
     sound.play();
   };
@@ -169,7 +181,7 @@ function Hero({ setIsGenerating, isGenerating }) {
         <Confetti
           style={{
             opacity: opacity,
-            transition: "opacity 2s ease-out", // Smooth fade-out transition
+            transition: "opacity 2s ease-out",
           }}
         />
       )}
@@ -218,6 +230,14 @@ function Hero({ setIsGenerating, isGenerating }) {
           onChange={(e) => handlePreferincies(e.target.value)}
           placeholder="Write numbers to exclude (separated by spaces)"
         />
+        <div className="lastpickscontainer">
+          <h1>Last picks:</h1>
+          {excludedNumbers.map((number, index) => (
+            <div className="lastpick" key={index}>
+              {number}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="numberscontainer">
         {numbers.map((number, index) => (
