@@ -5,28 +5,198 @@
   justify-content: space-evenly;
   align-items: center;
   overflow-y: auto;
+  background: url("../assets/background.png");
+  background-size: cover;
+}
+.maincontainer {
+  padding: 4vh;
+  height: clamp(300px, 65vh, 710px);
+  width: auto;
+  aspect-ratio: 1/1.42;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(25px) saturate(101%);
+  -webkit-backdrop-filter: blur(25px) saturate(101%);
+  background-color: rgba(17, 25, 40, 0.35);
+  border-radius: 50px;
+  border: 10px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.result {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: clamp(100px, 18vh, 230px);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 1000;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 8px #ffffff98;
+}
+.inputcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2px;
+  margin-top: 20px;
+  input {
+    width: 32%;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+  }
+  input::placeholder {
+    text-align: center;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+.generate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 40px;
+  border-radius: 10px;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.301);
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  overflow: hidden;
+  color: rgba(255, 255, 255);
+  z-index: 1;
+  box-shadow: 0 0 2px 0px #c5c5c581;
+  margin-top: 15px;
+  background: linear-gradient(to right, #5e98aa, #7b92fc);
+}
+.generate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  z-index: -1;
+  transition: width 0.4s ease-in-out;
+}
+.generate:hover::before {
+  width: 100%;
+}
+.generate:active {
+  transform: scale(0.98);
+}
+.generate:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
+}
+.generate:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.buttonscontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.checkboxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 7px;
+  background-color: royalblue;
+  border-radius: 7px;
+  label {
+    font-size: 13px;
+    font-weight: 800;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.699);
+  }
+}
+.reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 7px 20px;
+  background-color: royalblue;
+  border-radius: 7px;
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.699);
+  transition: transform 0.3s ease-in-out;
+}
+.reset:active {
+  transform: scale(0.95);
+}
+textarea {
+  width: 70%;
+  min-width: 220px;
+  height: 70px;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 900;
+  padding-left: 5px;
+  padding-top: 5px;
+  text-indent: 10px;
+  border-radius: 5px;
+  border: 3px solid #00000094;
+  overflow: hidden;
+}
+textarea:focus {
+  outline: none;
 }
 .numberscontainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50vw;
+  width: 40vw;
   max-width: 950px;
-  padding: 10px;
+  min-width: 370px;
   flex-wrap: wrap;
   gap: 10px;
   overflow: auto;
+  margin-bottom: 20px;
 }
 .number {
-  border: 1px solid black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
   text-align: center;
+  font-size: clamp(20px, 3vh, 35px);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(40px, 6vh, 85px);
+  width: clamp(40px, 7vh, 85px);
   aspect-ratio: 1/1;
   margin: 0;
   padding: 0;
+  background-color: rgb(212, 237, 250);
 }
 .cycling {
   border-color: red;
@@ -36,10 +206,13 @@
 }
 @media screen and (max-width: 1000px) {
   .maincontainer {
-    margin-top: 100px;
+    margin-top: 20px;
+    height: clamp(300px, 60vh, 800px);
+    width: 90vw;
+    max-width: 380px;
   }
   .hero {
     flex-direction: column;
-    gap: 40px;
+    gap: 25px;
   }
 }
