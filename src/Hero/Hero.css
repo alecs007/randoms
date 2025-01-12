@@ -130,7 +130,7 @@
     font-weight: 800;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.699);
+    color: rgb(255, 255, 255);
   }
 }
 .reset {
@@ -148,7 +148,7 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.699);
+  color: rgb(255, 255, 255);
   transition: transform 0.3s ease-in-out;
 }
 .reset:active {
