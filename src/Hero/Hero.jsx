@@ -82,6 +82,10 @@ function Hero() {
     sound.play();
   };
 
+  const resetPage = () => {
+    window.location.reload();
+  };
+
   useEffect(() => {
     setExcludedNumbers([]);
     handleNewNumbers();
@@ -189,17 +193,7 @@ function Hero() {
           {isGenerating ? "Generating..." : "Generate"}
         </button>
         <div className="buttonscontainer">
-          <button
-            onClick={() => {
-              setMin(1);
-              setMax(50);
-              setExcludedNumbers([]);
-              setResult(0);
-              setIsCycling(false);
-              setShowConfetti(false);
-            }}
-            className="reset"
-          >
+          <button onClick={resetPage} className="reset">
             Reset
           </button>
           <div className="checkboxcontainer">
