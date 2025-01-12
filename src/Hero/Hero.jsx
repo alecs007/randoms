@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "./Hero.css";
 import Confetti from "react-confetti";
 import drum_sound from "../assets/drum_sound.mp3";
-function Hero() {
+function Hero({ setIsGenerating, isGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
-  const [max, setMax] = useState(50);
+  const [max, setMax] = useState(70);
   const [prev, setPrev] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const [numbers, setNumbers] = useState([]);
@@ -15,7 +15,6 @@ function Hero() {
   const [preferencies, setPreferencies] = useState([]);
   const [showConfetti, setShowConfetti] = useState(false);
   const [opacity, setOpacity] = useState(1);
-  const [isGenerating, setIsGenerating] = useState(false);
 
   const handleRandomNumber = (min, max) => {
     let randomNumber;
@@ -87,8 +86,10 @@ function Hero() {
   };
 
   useEffect(() => {
-    setExcludedNumbers([]);
-    handleNewNumbers();
+    if (min > 0 && max < 1000 && min < max) {
+      setExcludedNumbers([]);
+      handleNewNumbers();
+    }
   }, [min, max, preferencies]);
 
   useEffect(() => {
@@ -157,7 +158,7 @@ function Hero() {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !isGenerating) {
       handleButtonClick();
     }
   };
@@ -187,7 +188,7 @@ function Hero() {
             type="number"
             onChange={(e) => setMax(Number(e.target.value))}
             onKeyDown={handleKeyPress}
-            placeholder="50"
+            placeholder="70"
           />
         </div>
         <button
@@ -218,7 +219,6 @@ function Hero() {
           placeholder="Write numbers to exclude (separated by spaces)"
         />
       </div>
-
       <div className="numberscontainer">
         {numbers.map((number, index) => (
           <div

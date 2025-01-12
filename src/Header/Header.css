@@ -1,0 +1,47 @@
+header {
+  width: 85vw;
+  margin-left: 7.5vw;
+  margin-top: 15px;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(15px, 5.5vh, 120px);
+  position: fixed;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  border-radius: 50px;
+  h1 {
+    background: linear-gradient(to bottom, #ffffff4b, #ffffff, #ffffff80);
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 5px;
+  }
+  img {
+    margin-top: 2.2vh;
+    width: clamp(15px, 8vh, 150px);
+    aspect-ratio: 1/1;
+    opacity: 0.4;
+  }
+}
+.spin {
+  animation: spin 4.4s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start position */
+  }
+  100% {
+    transform: rotate(360deg); /* End position */
+  }
+}
+@media screen and (max-width: 800px) {
+  header {
+    height: 7vh;
+    font-size: clamp(25px, 3.2vh, 55px);
+    img {
+      margin-top: 1.2vh;
+      width: clamp(40px, 5vh, 150px);
+    }
+  }
+}

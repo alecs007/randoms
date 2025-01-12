@@ -1,0 +1,14 @@
+footer {
+  width: 100vw;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(10px, 1.5vh, 15px);
+  background-color: rgba(0, 255, 255, 0.3);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 0;
+}

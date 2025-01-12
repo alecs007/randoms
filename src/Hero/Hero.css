@@ -21,9 +21,10 @@
   -webkit-backdrop-filter: blur(25px) saturate(101%);
   background-color: rgba(17, 25, 40, 0.35);
   border-radius: 50px;
-  border: 10px solid rgba(255, 255, 255, 0.4);
+  border: 12px solid rgba(255, 255, 255, 0.4);
   box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.5);
   position: relative;
+  margin-top: 80px;
 }
 .result {
   height: 50%;
@@ -32,12 +33,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: clamp(100px, 18vh, 210px);
+  font-size: clamp(100px, 17vh, 215px);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 1000;
   color: rgb(255, 255, 255);
   -webkit-text-stroke: 8px #ffffff98;
 }
+
 .inputcontainer {
   display: flex;
   justify-content: center;
@@ -150,6 +152,7 @@
   overflow: hidden;
   color: rgb(255, 255, 255);
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 .reset:active {
   transform: scale(0.95);
@@ -159,8 +162,10 @@ textarea {
   min-width: 220px;
   height: 70px;
   margin-top: 20px;
-  font-size: 1em;
+  font-size: 0.75em;
   font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(0, 0, 0, 0.7);
   padding-left: 5px;
   padding-top: 5px;
   border-radius: 5px;
@@ -176,18 +181,21 @@ textarea:focus {
   justify-content: center;
   width: 40vw;
   max-width: 950px;
-  min-width: 370px;
+  min-width: 360px;
   max-height: 65vh;
   flex-wrap: wrap;
   gap: 10px;
   overflow: auto;
+  margin-top: 80px;
 }
 .number {
-  border: 2px solid rgb(0, 0, 0);
+  border: 3px solid rgb(0, 0, 0);
   border-radius: 5px;
   text-align: center;
   font-size: clamp(20px, 3vh, 35px);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,23 +206,32 @@ textarea:focus {
   background-color: rgb(212, 237, 250);
 }
 .cycling {
-  border-color: red;
+  border-color: rgba(255, 0, 0, 0.7);
 }
 .selected {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 100px;
+  border: 5px solid rgba(0, 0, 0, 0.8);
+  color: white;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .maincontainer {
-    margin-top: 20px;
-    height: clamp(300px, 60vh, 800px);
-    width: 90vw;
+    margin-top: calc(7vh + 32px);
+    height: clamp(300px, 60vh, 600px);
+    width: 88vw;
     max-width: 380px;
   }
   .hero {
     flex-direction: column;
+    justify-content: space-between;
     gap: 25px;
   }
   .numberscontainer {
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
+    margin-top: 0px;
+    min-height: 24vh;
+  }
+  .number {
+    width: 60px;
   }
 }
