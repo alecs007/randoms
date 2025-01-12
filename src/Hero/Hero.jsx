@@ -56,7 +56,7 @@ function Hero() {
     for (let i = min; i <= max; i++) {
       newNumbers = [...newNumbers, i];
     }
-    if (max > 100 || min < 1) {
+    if (max > 999 || min < 1) {
       setNumbers([]);
     } else {
       const filteredNumbers = newNumbers.filter(
@@ -137,7 +137,7 @@ function Hero() {
     if (preferencies.length > numbers.length - 1) {
       return;
     }
-    if (max > 100 || min < 1 || max < min) {
+    if (max > 999 || min < 1 || max < min) {
       return;
     }
     if (!allowRepeat) {
@@ -154,6 +154,12 @@ function Hero() {
     setTimeout(() => {
       handleRandomNumber(min, max);
     }, 4400);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleButtonClick();
+    }
   };
 
   return (
@@ -174,11 +180,13 @@ function Hero() {
             onChange={(e) => {
               setMin(Number(e.target.value));
             }}
+            onKeyDown={handleKeyPress}
             placeholder="1"
           />
           <input
             type="number"
             onChange={(e) => setMax(Number(e.target.value))}
+            onKeyDown={handleKeyPress}
             placeholder="50"
           />
         </div>

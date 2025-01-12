@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: clamp(100px, 18vh, 230px);
+  font-size: clamp(100px, 18vh, 210px);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 1000;
   color: rgb(255, 255, 255);
@@ -163,7 +163,6 @@ textarea {
   font-weight: 900;
   padding-left: 5px;
   padding-top: 5px;
-  text-indent: 10px;
   border-radius: 5px;
   border: 3px solid #00000094;
   overflow: hidden;
@@ -178,10 +177,10 @@ textarea:focus {
   width: 40vw;
   max-width: 950px;
   min-width: 370px;
+  max-height: 65vh;
   flex-wrap: wrap;
   gap: 10px;
   overflow: auto;
-  margin-bottom: 20px;
 }
 .number {
   border: 2px solid rgb(0, 0, 0);
@@ -214,5 +213,8 @@ textarea:focus {
   .hero {
     flex-direction: column;
     gap: 25px;
+  }
+  .numberscontainer {
+    margin-bottom: 20px;
   }
 }
