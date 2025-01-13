@@ -3,6 +3,8 @@ import "./Hero.css";
 import Confetti from "react-confetti";
 import drum_sound from "../assets/drum_sound.mp3";
 import tada from "../assets/tada.mp3";
+import sound_on from "../assets/sound_on.png";
+import sound_off from "../assets/sound_off.png";
 function Hero({ setIsGenerating, isGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
@@ -16,6 +18,7 @@ function Hero({ setIsGenerating, isGenerating }) {
   const [preferencies, setPreferencies] = useState([]);
   const [showConfetti, setShowConfetti] = useState(false);
   const [opacity, setOpacity] = useState(1);
+  const [isSound, setIsSound] = useState(true);
 
   const handleRandomNumber = (min, max) => {
     let randomNumber;
@@ -42,9 +45,11 @@ function Hero({ setIsGenerating, isGenerating }) {
     setResult(randomNumber);
     setIsGenerating(false);
 
-    setTimeout(() => {
-      playTada();
-    }, 400);
+    if (isSound) {
+      setTimeout(() => {
+        playTada();
+      }, 400);
+    }
 
     setTimeout(() => {
       setShowConfetti(true);
@@ -157,9 +162,15 @@ function Hero({ setIsGenerating, isGenerating }) {
     } else {
       handleNewNumbers();
     }
+
     setIsGenerating(true);
-    playSound();
+
+    if (isSound) {
+      playSound();
+    }
+
     setIsCycling(true);
+
     setTimeout(() => {
       setIsCycling(false);
     }, 4100);
@@ -230,6 +241,13 @@ function Hero({ setIsGenerating, isGenerating }) {
               type="checkbox"
               onChange={(e) => setAllowRepeat(e.target.checked)}
             />
+          </div>
+          <div className="sound" onClick={() => setIsSound(!isSound)}>
+            {isSound ? (
+              <img src={sound_on} alt="Sound On" />
+            ) : (
+              <img src={sound_off} alt="Sound Off" />
+            )}
           </div>
         </div>
         <textarea

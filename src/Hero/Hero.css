@@ -142,7 +142,7 @@
   justify-content: center;
   gap: 10px;
   margin-top: 10px;
-  padding: 7px 20px;
+  padding: 7px 12px;
   background-color: royalblue;
   border-radius: 7px;
   border: none;
@@ -157,6 +157,24 @@
 }
 .reset:hover {
   transform: scale(0.95);
+}
+.sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 7px 9px;
+  background-color: royalblue;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  img {
+    width: 15px;
+    aspect-ratio: 1/1;
+
+    filter: invert(1) brightness(2);
+  }
 }
 textarea {
   width: 70%;
@@ -227,13 +245,13 @@ textarea:focus {
   margin-top: 80px;
 }
 .number {
-  border: 3px solid rgb(0, 0, 0);
-  border-radius: 5px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
   text-align: center;
   font-size: clamp(20px, 3vh, 35px);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -241,17 +259,19 @@ textarea:focus {
   aspect-ratio: 1/1;
   margin: 0;
   padding: 0;
-  background-color: rgb(212, 237, 250);
+  backdrop-filter: blur(25px) saturate(101%);
+  -webkit-backdrop-filter: blur(25px) saturate(101%);
+  background-color: rgba(17, 25, 40, 0.35);
   cursor: default;
 }
 .cycling {
-  border-color: rgba(255, 0, 0, 0.7);
+  border-color: rgba(255, 0, 0, 0.5);
 }
 .selected {
   background-color: rgba(255, 0, 0, 0.7);
   border-radius: 100px;
   border: 5px solid rgba(0, 0, 0, 0.8);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 @media screen and (max-width: 800px) {
   .maincontainer {
