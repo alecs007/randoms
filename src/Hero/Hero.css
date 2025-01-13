@@ -292,22 +292,16 @@ textarea::placeholder {
 
 @media screen and (max-width: 800px) {
   .maincontainer {
-    margin-top: calc(7vh + 32px);
-    height: clamp(300px, 60vh, 600px);
+    margin-top: calc(7vh + 50px);
+    height: clamp(500px, 60vh, 600px);
     width: 88vw;
     max-width: 380px;
   }
   .hero {
     flex-direction: column;
-    justify-content: space-between;
-    gap: 25px;
+    justify-content: start;
   }
   .numberscontainer {
-    margin-bottom: 5vh;
-    margin-top: 0px;
-    min-height: 21vh;
-  }
-  .number {
-    width: 60px;
+    display: none;
   }
 }
