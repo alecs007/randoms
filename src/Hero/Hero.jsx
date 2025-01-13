@@ -5,7 +5,7 @@ import drum_sound from "../assets/drum_sound.mp3";
 import tada from "../assets/tada.mp3";
 import sound_on from "../assets/sound_on.png";
 import sound_off from "../assets/sound_off.png";
-function Hero({ setIsGenerating, isGenerating }) {
+function Hero({ isGenerating, setIsGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(70);

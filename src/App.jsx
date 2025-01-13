@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header isGenerating={isGenerating} />
-      <Hero setIsGenerating={setIsGenerating} isGenerating={isGenerating} />
+      <Hero isGenerating={isGenerating} setIsGenerating={setIsGenerating} />
       <Footer />
     </>
   );
