@@ -19,6 +19,7 @@ function Hero({ setIsGenerating, isGenerating }) {
   const [showConfetti, setShowConfetti] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const [isSound, setIsSound] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleRandomNumber = (min, max) => {
     let randomNumber;
@@ -42,7 +43,11 @@ function Hero({ setIsGenerating, isGenerating }) {
     }
 
     setPrev([...prev, randomNumber]);
+    setIsAnimating(true);
     setResult(randomNumber);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 300);
     setIsGenerating(false);
 
     if (isSound) {
@@ -119,9 +124,12 @@ function Hero({ setIsGenerating, isGenerating }) {
         do {
           randomIndex = Math.floor(Math.random() * numbers.length);
         } while (randomIndex === prevIndex);
-
         setPrevIndex(randomIndex);
+        setIsAnimating(true);
         setResult(numbers[randomIndex]);
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, 330);
       }, 350);
 
       return () => clearInterval(intervalId);
@@ -204,7 +212,7 @@ function Hero({ setIsGenerating, isGenerating }) {
         />
       )}
       <div className="maincontainer">
-        <div className="result">{result}</div>
+        <div className={`result ${isAnimating ? "fade-up" : ""}`}>{result}</div>
         <div className="inputcontainer">
           <input
             type="number"
