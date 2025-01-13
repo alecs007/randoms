@@ -303,5 +303,6 @@ textarea::placeholder {
   }
   .numberscontainer {
     display: none;
+    height: 0px;
   }
 }
