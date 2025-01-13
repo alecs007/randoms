@@ -111,6 +111,10 @@ function Hero({ setIsGenerating, isGenerating }) {
   };
 
   useEffect(() => {
+    if (max === min) {
+      setNumbers([min]);
+      return;
+    }
     if (min > 0 && max < 1000 && min < max) {
       setExcludedNumbers([]);
       handleNewNumbers();
@@ -151,6 +155,7 @@ function Hero({ setIsGenerating, isGenerating }) {
   const handleButtonClick = () => {
     if (max === min) {
       setResult(min);
+      setNumbers([min]);
       return;
     }
     if (excludedNumbers.length === max - 1 && !allowRepeat) {

@@ -194,6 +194,9 @@ textarea {
 textarea:focus {
   outline: none;
 }
+textarea::placeholder {
+  opacity: 0.6;
+}
 .lastpickscontainer {
   cursor: default;
   background-color: #7b93fc46;
