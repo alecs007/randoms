@@ -133,7 +133,7 @@ function Hero({ setIsGenerating, isGenerating }) {
         setResult(numbers[randomIndex]);
         setTimeout(() => {
           setIsAnimating(false);
-        }, 330);
+        }, 300);
       }, 350);
 
       return () => clearInterval(intervalId);
