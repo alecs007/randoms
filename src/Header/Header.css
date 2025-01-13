@@ -11,6 +11,7 @@ header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 900;
   border-radius: 50px;
+  cursor: default;
   h1 {
     background: linear-gradient(to bottom, #ffffff4b, #ffffff, #ffffff80);
     background-clip: text;

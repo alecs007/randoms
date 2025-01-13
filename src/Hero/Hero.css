@@ -38,6 +38,7 @@
   font-weight: 1000;
   color: rgb(255, 255, 255);
   -webkit-text-stroke: 8px #ffffff98;
+  cursor: default;
 }
 
 .inputcontainer {
@@ -154,7 +155,7 @@
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
-.reset:active {
+.reset:hover {
   transform: scale(0.95);
 }
 textarea {
@@ -176,6 +177,7 @@ textarea:focus {
   outline: none;
 }
 .lastpickscontainer {
+  cursor: default;
   background-color: #7b93fc46;
   display: flex;
   align-items: center;
@@ -188,6 +190,7 @@ textarea:focus {
   overflow-x: auto;
   gap: 5px;
   border-radius: 5px;
+  user-select: none;
   h1 {
     font-size: 0.75em;
     font-weight: 900;
@@ -208,7 +211,7 @@ textarea:focus {
   }
 }
 .lastpickscontainer::-webkit-scrollbar {
-  height: 5px;
+  display: none;
 }
 .numberscontainer {
   display: flex;
@@ -239,6 +242,7 @@ textarea:focus {
   margin: 0;
   padding: 0;
   background-color: rgb(212, 237, 250);
+  cursor: default;
 }
 .cycling {
   border-color: rgba(255, 0, 0, 0.7);

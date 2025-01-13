@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Hero.css";
 import Confetti from "react-confetti";
 import drum_sound from "../assets/drum_sound.mp3";
@@ -7,7 +7,7 @@ function Hero({ setIsGenerating, isGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(70);
-  const [prev, setPrev] = useState(0);
+  const [prev, setPrev] = useState([]);
   const [prevIndex, setPrevIndex] = useState(null);
   const [numbers, setNumbers] = useState([]);
   const [isCycling, setIsCycling] = useState(false);
@@ -32,10 +32,13 @@ function Hero({ setIsGenerating, isGenerating }) {
       handleNewNumbers();
       do {
         randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      } while (randomNumber === prev || preferencies.includes(randomNumber));
+      } while (
+        randomNumber === prev[prev.lenght - 1] ||
+        preferencies.includes(randomNumber)
+      );
     }
 
-    setPrev(randomNumber);
+    setPrev([...prev, randomNumber]);
     setResult(randomNumber);
     setIsGenerating(false);
 
@@ -137,14 +140,10 @@ function Hero({ setIsGenerating, isGenerating }) {
       setResult(min);
       return;
     }
-    if (excludedNumbers.length === numbers.length - 1 && !allowRepeat) {
-      const remainingNumber = numbers.find(
-        (num) => !excludedNumbers.includes(num)
-      );
-      setResult(remainingNumber);
+    if (excludedNumbers.length === max - 1 && !allowRepeat) {
       return;
     }
-    if (excludedNumbers.length > numbers.length - 1) {
+    if (excludedNumbers.length > max - 1) {
       return;
     }
     if (preferencies.length > numbers.length - 1) {
@@ -174,6 +173,14 @@ function Hero({ setIsGenerating, isGenerating }) {
       handleButtonClick();
     }
   };
+
+  const lastPickRef = useRef(null);
+
+  useEffect(() => {
+    if (lastPickRef.current) {
+      lastPickRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [prev]);
 
   return (
     <div className="hero">
@@ -232,8 +239,13 @@ function Hero({ setIsGenerating, isGenerating }) {
         />
         <div className="lastpickscontainer">
           <h1>Last picks:</h1>
-          {excludedNumbers.map((number, index) => (
-            <div className="lastpick" key={index}>
+          {prev.length === 0 && <div className="lastpick">Pick!</div>}
+          {prev.map((number, index) => (
+            <div
+              className="lastpick"
+              key={index}
+              ref={index === prev.length - 1 ? lastPickRef : null}
+            >
               {number}
             </div>
           ))}
