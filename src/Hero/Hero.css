@@ -9,7 +9,7 @@
   background-size: cover;
 }
 .maincontainer {
-  padding: 4vh;
+  padding: 3vh;
   height: clamp(300px, 65vh, 710px);
   width: auto;
   aspect-ratio: 1/1.42;
@@ -21,7 +21,7 @@
   -webkit-backdrop-filter: blur(25px) saturate(101%);
   background-color: rgba(17, 25, 40, 0.35);
   border-radius: 50px;
-  border: 12px solid rgba(255, 255, 255, 0.4);
+  border: 12px solid #6494f56c;
   box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.5);
   position: relative;
   margin-top: 80px;
@@ -205,6 +205,7 @@ textarea::placeholder {
   justify-content: start;
   width: 70%;
   min-width: 220px;
+  max-width: 300px;
   height: 30px;
   margin-top: 5px;
   overflow-y: hidden;
