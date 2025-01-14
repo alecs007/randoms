@@ -279,9 +279,9 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: start;
-  width: 70%;
   min-width: 220px;
-  max-width: 300px;
+  width: 70%;
+  max-width: 275px;
   height: 30px;
   margin-top: 5px;
   overflow-y: hidden;

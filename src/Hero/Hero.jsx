@@ -22,6 +22,10 @@ function Hero() {
   const [opacity, setOpacity] = useState(1);
   const [isSound, setIsSound] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   const handleRandomNumber = (min, max) => {
     let randomNumber;
@@ -214,6 +218,20 @@ function Hero() {
     }
   }, [prev]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="hero">
       <header>
@@ -224,6 +242,8 @@ function Hero() {
       <div className="content">
         {showConfetti && (
           <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
             style={{
               opacity: opacity,
               transition: "opacity 2s ease-out",
