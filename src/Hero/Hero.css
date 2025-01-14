@@ -51,7 +51,7 @@ header {
   }
 }
 .spin {
-  animation: spin 4.4s linear infinite;
+  animation: spin 1.85s linear infinite;
 }
 @keyframes spin {
   0% {
@@ -369,7 +369,7 @@ textarea::placeholder {
 
 @media screen and (max-width: 1000px) {
   .maincontainer {
-    margin-top: 2.6em;
+    margin-top: 2.8em;
     height: clamp(500px, 60vh, 600px);
     width: 88vw;
     max-width: 380px;

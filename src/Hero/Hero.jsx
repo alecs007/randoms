@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./Hero.css";
 import Confetti from "react-confetti";
-import drum_sound from "../assets/drum_sound.mp3";
+import spinning from "../assets/spinning.mp3";
 import tada from "../assets/tada.mp3";
 import sound_on from "../assets/sound_on.png";
 import sound_off from "../assets/sound_off.png";
@@ -97,9 +97,15 @@ function Hero() {
   console.log(preferencies);
 
   const playSound = () => {
-    const sound = new Audio(drum_sound);
-    sound.volume = 0.1;
+    const sound = new Audio(spinning);
+    sound.volume = 0.5;
+    sound.currentTime = 1.9;
+    sound.playbackRate = 0.73;
+    sound.preservesPitch = true;
     sound.play();
+    setTimeout(() => {
+      sound.pause();
+    }, 1850);
   };
 
   const playTada = () => {
@@ -188,10 +194,10 @@ function Hero() {
 
     setTimeout(() => {
       setIsCycling(false);
-    }, 4100);
+    }, 1750);
     setTimeout(() => {
       handleRandomNumber(min, max);
-    }, 4400);
+    }, 1850);
   };
 
   const handleKeyPress = (event) => {
