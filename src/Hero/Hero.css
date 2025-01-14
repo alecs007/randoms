@@ -4,7 +4,7 @@
     "header"
     "content"
     "footer";
-  grid-template-rows: auto 70% auto;
+  grid-template-rows: 15% 70% 15%;
   grid-template-columns: 100%;
   width: 100vw;
   height: 100vh;
@@ -61,20 +61,25 @@ header {
     transform: rotate(360deg);
   }
 }
-footer {
+.footercontainer {
   grid-area: footer;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  width: 100vw;
   height: 5vh;
   min-height: 50px;
-  font-size: clamp(15px, 1.7vh, 17px);
+  font-size: clamp(11px, 1.5vh, 15px);
   background-color: rgba(0, 255, 255, 0.3);
   font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(0, 0, 0, 0.8);
   opacity: 0.3;
   cursor: default;
 }
@@ -364,7 +369,7 @@ textarea::placeholder {
 
 @media screen and (max-width: 1000px) {
   .maincontainer {
-    margin-top: 10px;
+    margin-top: 2.6em;
     height: clamp(500px, 60vh, 600px);
     width: 88vw;
     max-width: 380px;
@@ -379,7 +384,6 @@ textarea::placeholder {
   .hero {
     flex-direction: column;
     justify-content: start;
-    grid-template-rows: 15vh 80vh 5vh;
   }
   .numberscontainer {
     display: none;

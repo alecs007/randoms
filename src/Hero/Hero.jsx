@@ -6,13 +6,14 @@ import tada from "../assets/tada.mp3";
 import sound_on from "../assets/sound_on.png";
 import sound_off from "../assets/sound_off.png";
 import dice from "../assets/dice.png";
-function Hero({ isGenerating, setIsGenerating }) {
+function Hero() {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(70);
   const [prev, setPrev] = useState([]);
   const [prevIndex, setPrevIndex] = useState(null);
   const [numbers, setNumbers] = useState([]);
+  const [isGenerating, setIsGenerating] = useState(false);
   const [isCycling, setIsCycling] = useState(false);
   const [allowRepeat, setAllowRepeat] = useState(false);
   const [excludedNumbers, setExcludedNumbers] = useState([]);
@@ -304,7 +305,9 @@ function Hero({ isGenerating, setIsGenerating }) {
           ))}
         </div>
       </div>
-      <footer>All rights reserved &copy; randoms.fun 2025</footer>
+      <div className="footercontainer">
+        <footer>All rights reserved &copy; randoms.fun 2025</footer>
+      </div>
     </div>
   );
 }
