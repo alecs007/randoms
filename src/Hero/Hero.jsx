@@ -5,6 +5,7 @@ import drum_sound from "../assets/drum_sound.mp3";
 import tada from "../assets/tada.mp3";
 import sound_on from "../assets/sound_on.png";
 import sound_off from "../assets/sound_off.png";
+import dice from "../assets/dice.png";
 function Hero({ isGenerating, setIsGenerating }) {
   const [result, setResult] = useState(0);
   const [min, setMin] = useState(1);
@@ -208,92 +209,102 @@ function Hero({ isGenerating, setIsGenerating }) {
 
   return (
     <div className="hero">
-      {showConfetti && (
-        <Confetti
-          style={{
-            opacity: opacity,
-            transition: "opacity 2s ease-out",
-          }}
-        />
-      )}
-      <div className="maincontainer">
-        <div className={`result ${isAnimating ? "fade-up" : ""}`}>{result}</div>
-        <div className="inputcontainer">
-          <input
-            type="number"
-            onChange={(e) => {
-              setMin(Number(e.target.value));
+      <header>
+        <h1>rand</h1>
+        <img src={dice} alt="Dice" className={isGenerating ? "spin" : ""} />
+        <h1>ms.fun</h1>
+      </header>
+      <div className="content">
+        {showConfetti && (
+          <Confetti
+            style={{
+              opacity: opacity,
+              transition: "opacity 2s ease-out",
             }}
-            onKeyDown={handleKeyPress}
-            placeholder="1"
           />
-          <input
-            type="number"
-            onChange={(e) => setMax(Number(e.target.value))}
-            onKeyDown={handleKeyPress}
-            placeholder="70"
-          />
-        </div>
-        <button
-          onClick={() => {
-            handleButtonClick();
-            setShowConfetti(false);
-          }}
-          disabled={isGenerating}
-          className="generate"
-        >
-          {isGenerating ? "Generating..." : "Generate"}
-        </button>
-        <div className="buttonscontainer">
-          <button onClick={resetPage} className="reset">
-            Reset
-          </button>
-          <div className="checkboxcontainer">
-            <label>Allow Repeat</label>
+        )}
+        <div className="maincontainer">
+          <div className={`result ${isAnimating ? "fade-up" : ""}`}>
+            {result}
+          </div>
+          <div className="inputcontainer">
             <input
-              type="checkbox"
-              onChange={(e) => setAllowRepeat(e.target.checked)}
+              type="number"
+              onChange={(e) => {
+                setMin(Number(e.target.value));
+              }}
+              onKeyDown={handleKeyPress}
+              placeholder="1"
+            />
+            <input
+              type="number"
+              onChange={(e) => setMax(Number(e.target.value))}
+              onKeyDown={handleKeyPress}
+              placeholder="70"
             />
           </div>
-          <div className="sound" onClick={() => setIsSound(!isSound)}>
-            {isSound ? (
-              <img src={sound_on} alt="Sound On" />
-            ) : (
-              <img src={sound_off} alt="Sound Off" />
-            )}
+          <button
+            onClick={() => {
+              handleButtonClick();
+              setShowConfetti(false);
+            }}
+            disabled={isGenerating}
+            className="generate"
+          >
+            {isGenerating ? "Generating..." : "Generate"}
+          </button>
+          <div className="buttonscontainer">
+            <button onClick={resetPage} className="reset">
+              Reset
+            </button>
+            <div className="checkboxcontainer">
+              <label>Allow Repeat</label>
+              <input
+                type="checkbox"
+                onChange={(e) => setAllowRepeat(e.target.checked)}
+              />
+            </div>
+            <div className="sound" onClick={() => setIsSound(!isSound)}>
+              {isSound ? (
+                <img src={sound_on} alt="Sound On" />
+              ) : (
+                <img src={sound_off} alt="Sound Off" />
+              )}
+            </div>
+          </div>
+          <textarea
+            type="text"
+            onChange={(e) => handlePreferincies(e.target.value)}
+            placeholder="Write numbers to exclude (separated by spaces)"
+          />
+          <div className="lastpickscontainer">
+            <h1>Last picks:</h1>
+            {prev.length === 0 && <div className="lastpick">Pick!</div>}
+            {prev.map((number, index) => (
+              <div
+                className="lastpick"
+                key={index}
+                ref={index === prev.length - 1 ? lastPickRef : null}
+              >
+                {number}
+              </div>
+            ))}
           </div>
         </div>
-        <textarea
-          type="text"
-          onChange={(e) => handlePreferincies(e.target.value)}
-          placeholder="Write numbers to exclude (separated by spaces)"
-        />
-        <div className="lastpickscontainer">
-          <h1>Last picks:</h1>
-          {prev.length === 0 && <div className="lastpick">Pick!</div>}
-          {prev.map((number, index) => (
+        <div className="numberscontainer">
+          {numbers.map((number, index) => (
             <div
-              className="lastpick"
+              className={`number ${number === result ? "selected" : ""} ${
+                isCycling ? "cycling" : ""
+              }`}
               key={index}
-              ref={index === prev.length - 1 ? lastPickRef : null}
             >
               {number}
             </div>
           ))}
         </div>
       </div>
-      <div className="numberscontainer">
-        {numbers.map((number, index) => (
-          <div
-            className={`number ${number === result ? "selected" : ""} ${
-              isCycling ? "cycling" : ""
-            }`}
-            key={index}
-          >
-            {number}
-          </div>
-        ))}
-      </div>
+      <footer>All rights reserved &copy; randoms.fun 2025</footer>
     </div>
   );
 }
