@@ -55,7 +55,7 @@ function Hero() {
     if (isSound) {
       setTimeout(() => {
         playTada();
-      }, 400);
+      }, 100);
     }
 
     setTimeout(() => {
