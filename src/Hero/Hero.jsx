@@ -165,6 +165,7 @@ function Hero() {
   }, [showConfetti]);
 
   const handleButtonClick = () => {
+    setIsButtonHovered(false);
     if (max === min) {
       setResult(min);
       setNumbers([min]);
@@ -285,7 +286,6 @@ function Hero() {
               handleButtonClick();
               setShowConfetti(false);
             }}
-            onTouchStart={() => setIsButtonHovered(false)}
             onMouseEnter={() => setIsButtonHovered(true)}
             onMouseLeave={() => setIsButtonHovered(false)}
             disabled={isGenerating}
