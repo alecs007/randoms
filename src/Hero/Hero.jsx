@@ -214,7 +214,10 @@ function Hero() {
 
   useEffect(() => {
     if (lastPickRef.current) {
-      lastPickRef.current.scrollIntoView({ behavior: "smooth" });
+      lastPickRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
     }
   }, [prev]);
 
@@ -242,8 +245,8 @@ function Hero() {
       <div className="content">
         {showConfetti && (
           <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
+            width={windowSize.width}
+            height={windowSize.height}
             style={{
               opacity: opacity,
               transition: "opacity 2s ease-out",
