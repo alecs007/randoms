@@ -400,4 +400,7 @@ textarea::placeholder {
   footer {
     height: 5vh;
   }
+  .result {
+    font-size: 8.5em;
+  }
 }
