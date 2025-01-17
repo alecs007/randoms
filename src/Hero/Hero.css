@@ -173,7 +173,7 @@ footer {
   z-index: -1;
   transition: width 0.4s ease-in-out;
 }
-.generate:hover::before {
+.generate.hover::before {
   width: 100%;
 }
 .generate:active {
@@ -185,7 +185,7 @@ footer {
   pointer-events: none;
   user-select: none;
 }
-.generate:hover {
+.generate.hover {
   color: rgba(65, 65, 65, 0.7);
 }
 .buttonscontainer {

@@ -22,6 +22,7 @@ function Hero() {
   const [opacity, setOpacity] = useState(1);
   const [isSound, setIsSound] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -98,7 +99,6 @@ function Hero() {
 
     setPreferencies(inputArray);
   };
-  console.log(preferencies);
 
   const playSound = () => {
     const sound = new Audio(spinning);
@@ -170,13 +170,20 @@ function Hero() {
       setNumbers([min]);
       return;
     }
-    if (excludedNumbers.length === max - 1 && !allowRepeat) {
+    if (numbers.length === 1) {
+      setResult(numbers[0]);
       return;
     }
-    if (excludedNumbers.length > max - 1) {
+    if (excludedNumbers.length > max - min) {
       return;
     }
-    if (preferencies.length > numbers.length - 1) {
+    if (preferencies.length > max - min) {
+      return;
+    }
+    if (
+      preferencies.length + excludedNumbers.length >= max - min &&
+      !allowRepeat
+    ) {
       return;
     }
     if (max > 999 || min < 1 || max < min) {
@@ -278,8 +285,11 @@ function Hero() {
               handleButtonClick();
               setShowConfetti(false);
             }}
+            onTouchStart={() => setIsButtonHovered(false)}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
             disabled={isGenerating}
-            className="generate"
+            className={`generate ${isButtonHovered ? "hover" : ""}`}
           >
             {isGenerating ? "Generating..." : "Generate"}
           </button>
