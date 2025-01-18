@@ -347,12 +347,9 @@ textarea::placeholder {
   border-color: rgba(255, 0, 0, 0.5);
 }
 .selected {
-  background: url("../assets/selected_background.jpg");
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(to bottom, #ed213a, #93291e);
   border-radius: 100px;
-  border: 5px solid rgba(0, 0, 0, 0.9);
+  border: 5px solid rgba(0, 0, 0, 0.6);
   color: rgb(255, 255, 255);
 }
 @keyframes fadeUp {
