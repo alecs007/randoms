@@ -10,3 +10,5 @@
     •Hosting: Explored deployment options and successfully published the project online, ensuring it loads quickly and reliably for visitors.
 
 Overall, building this project was a great experience that helped me grow as a developer. I gained confidence in turning an idea into a finished website and learned skills that I’ll use in future projects.
+
+![randoms_presentation](https://github.com/user-attachments/assets/441530c6-6a62-4602-ab26-f2839ca0b704)
