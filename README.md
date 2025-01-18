@@ -1,4 +1,4 @@
-### <h1 align="center"><strong><em>randoms.fun</em></strong></h1>
+# <h1 align="center"><strong><em>randoms.fun</em></strong></h1>
 
 **randoms.fun** is a simple and easy-to-use website where you can generate random numbers. Whether you need it for a game, making decisions, or just for fun, this tool does the job quickly and reliably. It has a clean design and works well on all devices, so anyone can use it without any trouble.
 
