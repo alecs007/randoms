@@ -1,0 +1,43 @@
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: url("../assets/background.png");
+  background-size: cover;
+  h1 {
+    font-size: clamp(100px, 15vh, 200px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 900;
+    text-align: center;
+    margin-top: 100px;
+  }
+  button {
+    margin-top: 50px;
+    padding: 15px;
+    background-color: rgba(250, 250, 250, 0.5);
+    border-radius: 100px;
+    border: 1px solid rgba(86, 130, 252, 0.63);
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: clamp(15px, 2vh, 25px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  button:hover {
+    background-color: rgba(132, 161, 240, 0.63);
+    transform: scale(0.95);
+  }
+  img {
+    width: clamp(200px, 25vh, 250px);
+    aspect-ratio: 2/1;
+    border-radius: 20px;
+    outline: 2px solid rgba(255, 255, 255, 0.459);
+    opacity: 0.4;
+  }
+}
