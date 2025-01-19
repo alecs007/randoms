@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
-
+Disallow: /private/
+Allow: /sitemap.xml
 Sitemap: https://www.randoms.fun/sitemap.xml
