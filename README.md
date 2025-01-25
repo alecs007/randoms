@@ -11,6 +11,7 @@
 
 Overall, building this project was a great experience that helped me grow as a developer. I gained confidence in turning an idea into a finished website and learned skills that I’ll use in future projects.
 
-![randoms_presentation](https://github.com/user-attachments/assets/2e9ac51b-2672-4c4d-9770-0524e50b86b8)
+![rpresentation_randoms](https://github.com/user-attachments/assets/cc819002-15ab-4dcf-865a-145cea50d4ca)
+
 
 
