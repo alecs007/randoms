@@ -183,6 +183,9 @@ function Hero() {
       preferencies.length + excludedNumbers.length >= max - min &&
       !allowRepeat
     ) {
+      const remainingNumber = numbers.find((num) => num !== result);
+      setResult(remainingNumber);
+      setNumbers([remainingNumber]);
       return;
     }
     if (max > 999 || min < 1 || max < min) {
