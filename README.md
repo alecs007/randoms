@@ -9,7 +9,7 @@
     • Domain Integration: Gained experience in linking a custom domain (randoms.fun) to a hosted project.
     • Hosting: Explored deployment options and successfully published the project online, ensuring it loads quickly and reliably for visitors.
 
-Overallf, building this project was a great experience that helped me grow as a developer. I gained confidence in turning an idea into a finished website and learned skills that I’ll use in future projects.
+Overall, building this project was a great experience that helped me grow as a developer. I gained confidence in turning an idea into a finished website and learned skills that I’ll use in future projects.
 
 ![rpresentation_randoms](https://github.com/user-attachments/assets/cc819002-15ab-4dcf-865a-145cea50d4ca)
 
